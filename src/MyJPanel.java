@@ -17,17 +17,17 @@ public class MyJPanel extends JPanel implements MouseMotionListener{
 	}
 	protected void paintComponent(Graphics g){
 		super.paintComponent(g);//inherit from super class
-		g.drawRect(x,y,square.getShapeHeight(),square.getShapeWidth());
-		g.fillRect(x,y,square.getShapeHeight(),square.getShapeWidth());
 		g.setColor(square.getRandomColor());
+		g.fillRect(square.getCenterX(x),square.getCenterY(y),square.getShapeHeight(),square.getShapeWidth());
+		
 		
 	}
 
 	@Override
 	public void mouseDragged(MouseEvent e) {
 		// TODO Get mouse dragged position and change suqare's position
-		x = square.getCenterX(e.getX());
-		y= square.getCenterY(e.getY());
+		x = e.getX();
+		y = e.getY();
 		
 		repaint();
 	}
